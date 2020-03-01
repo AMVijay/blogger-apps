@@ -1,9 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppRoutingModule } from './app-routing.module';
+import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { BloggerModule } from './blogger/blogger.module';
+import { HttpserviceService } from './blogger/shared/httpservice/httpservice.service';
+
 
 @NgModule({
   declarations: [
@@ -11,10 +12,10 @@ import { BloggerModule } from './blogger/blogger.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    BloggerModule
+    BloggerModule,
+    RouterModule
   ],
-  providers: [],
+  providers: [HttpserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

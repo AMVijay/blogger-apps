@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpserviceService } from '../shared/httpservice/httpservice.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private httpservice: HttpserviceService) { }
+
+  content: string;
 
   ngOnInit(): void {
+    this.getData();
   }
+
+  getData() {
+    this.httpservice.getHtmlContent("https://amvijay.github.io/sample.json").subscribe(response => {
+      this.content = response["content"];
+    });
+  }
+
 
 }
