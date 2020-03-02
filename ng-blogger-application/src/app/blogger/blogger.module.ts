@@ -4,12 +4,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MaterialModule } from './material/material.module';
 
 import { SharedModule } from './shared/shared.module';
-import { HomeComponent } from './home/home.component';
+import { BlogComponent } from './blog/blog.component';
 import { HeaderComponent } from './header/header.component';
 import { RoutingModule } from './routing/routing.module';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
-  declarations: [HomeComponent, HeaderComponent],
+  declarations: [BlogComponent, HeaderComponent, HomeComponent],
   imports: [
     CommonModule,
     NgbModule,
@@ -18,7 +19,7 @@ import { RoutingModule } from './routing/routing.module';
     RoutingModule
   ],
   exports: [
-    HomeComponent,
+    BlogComponent,
     HeaderComponent,
     RoutingModule
   ]
