@@ -12,7 +12,7 @@ export class HttpserviceService {
    * Method to get HTMLContent from URL location.
    * @param url as String.
    */
-  public getHtmlContent(url: string){
+  public getData(url: string){
     return this.http.get(url);
   }
 
