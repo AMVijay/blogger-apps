@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpserviceService } from '../shared/httpservice/httpservice.service';
 
+export interface HomePageCard {
+  title: string;
+  description: string;
+  url: string;
+}
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -8,19 +14,22 @@ import { HttpserviceService } from '../shared/httpservice/httpservice.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private httpservice: HttpserviceService) { }
+  constructor(private httpService: HttpserviceService) { }
 
-  content: string;
+  cards: HomePageCard[];
 
   ngOnInit(): void {
+    // Get Data
     this.getData();
   }
 
-  getData() {
-    this.httpservice.getHtmlContent("https://amvijay.github.io/sample.json").subscribe(response => {
-      this.content = response["content"];
+  private getData() {
+    this.cards = [];
+    this.httpService.getData("https://amvijay.github.io/home/home.json").subscribe((response: HomePageCard[]) => {
+      response.forEach(element => {
+        console.log("Element :: " + element.title);
+        this.cards.push(element);
+      });
     });
   }
-
-
 }

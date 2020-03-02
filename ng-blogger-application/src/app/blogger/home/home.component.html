@@ -1,1 +1,13 @@
-<div style="top: 40px; position: relative;" [innerHTML]="content"></div>
+<mat-grid-list cols="3" rowHeight="1:0.40" gutterSize="10px" style="top: 60px; position: relative;">
+  <mat-grid-tile *ngFor="let card of cards">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title style="font-weight: bold;">{{card.title}}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        {{card.description}}
+        <a href="{{card.url}}"> Read More</a>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
