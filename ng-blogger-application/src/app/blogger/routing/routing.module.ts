@@ -5,15 +5,16 @@ import { BlogComponent } from '../blog/blog.component';
 import { HomeComponent } from '../home/home.component';
 
 const routes: Routes = [
-  {path:"",component: HomeComponent},
-  {path:"how-https-works", component: BlogComponent}
+  { path: "", component: HomeComponent },
+  { path: "hadoop", component: HomeComponent },
+  { path: "how-https-works", component: BlogComponent }
 ];
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    RouterModule.forRoot(routes)  
+    RouterModule.forRoot(routes)
   ]
 })
 export class RoutingModule { }

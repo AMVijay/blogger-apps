@@ -19,6 +19,8 @@
 ## Third Party Angular Modules Installed in this application
 * `npm install --save @ng-bootstrap/ng-bootstrap` - Install Bootstrap Angular Module.
 * `npm install --save @angular/material @angular/cdk` - Install Angular Material Module.
+* `npm install --save @angular/flex-layout @angular/cdk` - Install Flex Layout Components and Module.
+* `npm install --save bootstrap` Install Bootstrap css.
 
 ## Local Run
 * `ng serve --open` to run this application locally.

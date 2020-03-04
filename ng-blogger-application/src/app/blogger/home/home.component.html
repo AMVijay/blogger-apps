@@ -1,4 +1,19 @@
-<mat-grid-list cols="3" rowHeight="1:0.40" gutterSize="10px" style="top: 60px; position: relative;">
+<div id="content" class="container" style="top: 70px; position: relative;">
+  <div class="row">
+    <div class="col-4" *ngFor="let card of cards">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{card.title}}</h5>
+          <p class="card-text">{{card.description}}</p>
+          <a [routerLink]="card.url" routerLinkActive="active">Read More...</a>
+          <!-- <a [routerLink]="{{card.url}}" href="#">Read More...</a> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <mat-grid-list cols="3" rowHeight="1:0.40" gutterSize="10px" style="top: 60px; position: relative;">
   <mat-grid-tile *ngFor="let card of cards">
     <mat-card>
       <mat-card-header>
@@ -10,4 +25,4 @@
       </mat-card-content>
     </mat-card>
   </mat-grid-tile>
-</mat-grid-list>
+</mat-grid-list> -->
