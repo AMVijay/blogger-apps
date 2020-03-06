@@ -1,4 +1,4 @@
-<div id="content" class="container" style="top: 70px; position: relative;">
+<div id="content" class="container">
   <div class="row">
     <div class="col-4" *ngFor="let card of cards">
       <div class="card">
@@ -6,7 +6,6 @@
           <h5 class="card-title">{{card.title}}</h5>
           <p class="card-text">{{card.description}}</p>
           <a [routerLink]="card.url" routerLinkActive="active">Read More...</a>
-          <!-- <a [routerLink]="{{card.url}}" href="#">Read More...</a> -->
         </div>
       </div>
     </div>

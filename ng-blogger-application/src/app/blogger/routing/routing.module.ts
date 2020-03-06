@@ -7,7 +7,7 @@ import { HomeComponent } from '../home/home.component';
 const routes: Routes = [
   { path: "", component: HomeComponent },
   { path: "hadoop", component: HomeComponent },
-  { path: "how-https-works", component: BlogComponent }
+  { path: "**", component: BlogComponent }
 ];
 
 @NgModule({

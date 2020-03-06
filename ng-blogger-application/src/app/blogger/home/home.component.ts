@@ -31,10 +31,11 @@ export class HomeComponent implements OnInit {
     this.cards = [];
     let url = "https://amvijay.github.io/home/home.json";
     if(this.router.url != "/"){
-      url = "https://amvijay.github.io"+this.router.url+"content.json";
+      console.log("Router URL :: " + this.router.url);
+      url = "https://amvijay.github.io"+this.router.url+"/content.json";
     }
 
-    this.httpService.getData("https://amvijay.github.io/home/home.json").subscribe((response: HomePageCard[]) => {
+    this.httpService.getData(url).subscribe((response: HomePageCard[]) => {
       response.forEach(element => {
         this.cards.push(element);
       });

@@ -21,6 +21,14 @@
 * `npm install --save @angular/material @angular/cdk` - Install Angular Material Module.
 * `npm install --save @angular/flex-layout @angular/cdk` - Install Flex Layout Components and Module.
 * `npm install --save bootstrap` Install Bootstrap css.
+    * import bootstrap css into styles.scss as `@import "~bootstrap/scss/bootstrap.scss";`.
+* `npm install --save ngx-markdown` - Install Markdown Processor.
+    * Add marked.js in angular.json script section.
+```typescript
+"scripts": [
+    "node_modules/marked/lib/marked.js"
+]
+```
 
 ## Local Run
 * `ng serve --open` to run this application locally.
