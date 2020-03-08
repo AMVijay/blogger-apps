@@ -29,10 +29,10 @@ export class HomeComponent implements OnInit {
 
   private getData() {
     this.cards = [];
-    let url = "https://amvijay.github.io/home/home.json";
+    let url = "https://amvijay.github.io/home.json";
     if(this.router.url != "/"){
       console.log("Router URL :: " + this.router.url);
-      url = "https://amvijay.github.io"+this.router.url+"/content.json";
+      url = "https://amvijay.github.io"+this.router.url+".json";
     }
 
     this.httpService.getData(url).subscribe((response: HomePageCard[]) => {
