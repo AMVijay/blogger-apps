@@ -29,7 +29,6 @@
     "node_modules/marked/lib/marked.js"
 ]
 ```
-
 ## Local Run
 * `ng serve --open` to run this application locally.
 

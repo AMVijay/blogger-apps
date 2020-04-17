@@ -17,16 +17,24 @@
   </div>
 </div>
 
-<!-- <mat-grid-list cols="3" rowHeight="1:0.40" gutterSize="10px" style="top: 60px; position: relative;">
-  <mat-grid-tile *ngFor="let card of cards">
-    <mat-card>
-      <mat-card-header>
-        <mat-card-title style="font-weight: bold;">{{card.title}}</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        {{card.description}}
-        <a href="{{card.url}}"> Read More</a>
-      </mat-card-content>
-    </mat-card>
-  </mat-grid-tile>
-</mat-grid-list> -->
+<!-- Below implementation is to show cards in 4x4 layout using Flex-layout -->
+<!-- <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="5px grid" fxLayoutAlign="flex-start">
+  <ng-container *ngFor="let card of cards">
+    <div fxFlex="0 1 calc(25% - 5px)" fxFlex.lt-md="0 1 calc(50% - 1%)" fxFlex.lt-sm="100%">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title style="font-weight: bold;">{{card.title}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{card.description}}</p>
+          <div *ngIf="!card.url.startsWith('https')">
+            <a [routerLink]="card.url" routerLinkActive="active">Read More...</a>
+          </div>
+          <div *ngIf="card.url.startsWith('https')">
+            <a [href]="card.url">Read More...</a>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </ng-container>
+</div> -->
