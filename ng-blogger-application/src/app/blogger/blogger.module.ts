@@ -10,8 +10,8 @@ import { BlogComponent } from './blog/blog.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { HttpserviceService } from './shared/httpservice/httpservice.service';
-import { RoutingModule } from './routing/routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { BloggerRouterModule } from './routing/routing.module';
 
 @NgModule({
   declarations: [BlogComponent, HeaderComponent, HomeComponent],
@@ -22,13 +22,14 @@ import { HttpClientModule } from '@angular/common/http';
     FlexLayoutModule,
     SharedModule,
     MaterialModule,
-    RoutingModule,
+    BloggerRouterModule,
     HttpClientModule,
     MarkdownModule.forRoot({ loader: HttpClientModule })
   ],
   exports: [
     BlogComponent,
-    HeaderComponent
+    HeaderComponent,
+    BloggerRouterModule
   ],
   providers: [
     HttpserviceService

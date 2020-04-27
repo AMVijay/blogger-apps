@@ -7,14 +7,26 @@ import { HomeComponent } from '../home/home.component';
 const routes: Routes = [
   { path: "", component: HomeComponent },
   { path: "hadoop", component: HomeComponent },
-  { path: "**", component: BlogComponent }
+  {
+    path: "blog",
+    children: [
+      {
+        path: "**",
+        component: BlogComponent
+      }
+    ]
+  },
+  {
+    path: "**", component: BlogComponent
+  }
 ];
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    RouterModule.forRoot(routes, { useHash: true })
+    // RouterModule.forRoot(routes, { useHash: true })
+    RouterModule.forRoot(routes)
   ]
 })
-export class RoutingModule { }
+export class BloggerRouterModule { }

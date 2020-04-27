@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { BloggerModule } from './blogger/blogger.module';
 import { HttpserviceService } from './blogger/shared/httpservice/httpservice.service';
+import { BloggerRouterModule } from './blogger/routing/routing.module';
 
 
 @NgModule({
@@ -12,8 +13,9 @@ import { HttpserviceService } from './blogger/shared/httpservice/httpservice.ser
   ],
   imports: [
     BrowserModule,
+    RouterModule,
     BloggerModule,
-    RouterModule
+    BloggerRouterModule,
   ],
   providers: [HttpserviceService],
   bootstrap: [AppComponent]
