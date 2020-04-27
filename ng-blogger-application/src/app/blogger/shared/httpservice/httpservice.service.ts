@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable({
   providedIn: "root"
 })
-export class HttpserviceService {
+export class BloggerHttpService {
 
   constructor(private http:HttpClient) { }
  

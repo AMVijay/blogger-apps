@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpserviceService } from '../shared/httpservice/httpservice.service';
+
 import { Router } from '@angular/router';
+import { BloggerHttpService } from '../shared/httpservice/httpservice.service';
 
 export interface HomePageCard {
   title: string;
@@ -15,7 +16,7 @@ export interface HomePageCard {
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private httpService: HttpserviceService,
+  constructor(private httpService: BloggerHttpService,
     private router: Router) { }
 
   cards: HomePageCard[];

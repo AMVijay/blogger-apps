@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { BloggerModule } from './blogger/blogger.module';
-import { HttpserviceService } from './blogger/shared/httpservice/httpservice.service';
 import { BloggerRouterModule } from './blogger/routing/routing.module';
 
 
@@ -17,7 +16,7 @@ import { BloggerRouterModule } from './blogger/routing/routing.module';
     BloggerModule,
     BloggerRouterModule,
   ],
-  providers: [HttpserviceService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

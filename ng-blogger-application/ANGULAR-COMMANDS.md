@@ -10,10 +10,12 @@
 * `ng generate module blogger` - to create module for this entire site.
     * `ng generate component blogger/home --module blogger` - Create home page component.
     * `ng generate component blogger/blog --module blogger` - Create Blog Page component.
+	* `ng generate component blogger/category --module blogger` - Create Categories section Component.
     * `ng generate module blogger/shared --module blogger` - Create shared module inside blogger module.
     * `ng generate component blogger/header --module blogger` - Create Header Component inside blogger module.
     * `ng generate module blogger/material --module blogger` - Create Module for angular material import.
     * `ng generate module blogger/routing --module blogger` - Create Module for routing configuration.
+		* Added `useHash: true` attribute to so that direct URL redirection works with # value.
     * `ng generate service blogger/shared/httpservice` - Create HttpService.
 
 ## Third Party Angular Modules Installed in this application

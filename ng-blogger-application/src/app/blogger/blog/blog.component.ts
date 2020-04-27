@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpserviceService } from '../shared/httpservice/httpservice.service';
 import { Router } from '@angular/router';
+import { BloggerHttpService } from '../shared/httpservice/httpservice.service';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class BlogComponent implements OnInit {
 
-  constructor(private httpservice: HttpserviceService,
+  constructor(private httpService: BloggerHttpService,
     private router:Router) { }
 
   content: string;

@@ -9,12 +9,13 @@ import { SharedModule } from './shared/shared.module';
 import { BlogComponent } from './blog/blog.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
-import { HttpserviceService } from './shared/httpservice/httpservice.service';
+import { BloggerHttpService } from './shared/httpservice/httpservice.service';
 import { HttpClientModule } from '@angular/common/http';
 import { BloggerRouterModule } from './routing/routing.module';
+import { CategoryComponent } from './category/category.component';
 
 @NgModule({
-  declarations: [BlogComponent, HeaderComponent, HomeComponent],
+  declarations: [BlogComponent, HeaderComponent, HomeComponent, CategoryComponent],
   imports: [
     CommonModule,
     NgbModule,
@@ -31,8 +32,6 @@ import { BloggerRouterModule } from './routing/routing.module';
     HeaderComponent,
     BloggerRouterModule
   ],
-  providers: [
-    HttpserviceService
-  ]
+  providers: [BloggerHttpService]
 })
 export class BloggerModule { }
