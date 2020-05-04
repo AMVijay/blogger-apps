@@ -3,7 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiUrl: "http://localhost:8080/meta-data",
+  blogUrl: "http://localhost:8080/blog",
+  homeUrl: "http://localhost:8080/meta-data/home.json",
+  categoriesUrl: "http://localhost:8080/meta-data/categories.json"
 };
 
 /*

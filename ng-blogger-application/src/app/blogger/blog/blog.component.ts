@@ -1,6 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BloggerHttpService } from '../shared/httpservice/httpservice.service';
+import { environment } from 'src/environments/environment';
+import { Title, Meta } from '@angular/platform-browser';
+
+
+export interface MetaData{
+  title: string,
+  lastUpdatedDate: string,
+  keywords: string
+}
 
 @Component({
   selector: 'app-home',
@@ -10,7 +19,9 @@ import { BloggerHttpService } from '../shared/httpservice/httpservice.service';
 export class BlogComponent implements OnInit {
 
   constructor(private httpService: BloggerHttpService,
-    private router:Router) { }
+    private titleService: Title,
+    private metaDataService: Meta,    
+    private router: Router) { }
 
   content: string;
   markdownFilePath: string;
@@ -20,7 +31,21 @@ export class BlogComponent implements OnInit {
   }
 
   getData() {
-    this.markdownFilePath = "https://amvijay.github.io/blog" + this.router.url + ".md"
+
+    this.titleService.setTitle("AM.VIJAY - Blogger Application");
+
+    // Get MetaData
+    let metadataUrl = environment.apiUrl + this.router.url + ".json";  
+    this.httpService.getData(metadataUrl).subscribe((response : MetaData) => {
+        if(response != null){
+          this.titleService.setTitle(response.title);
+          this.metaDataService.addTag({name: 'keywords',content: response.keywords});
+          this.metaDataService.addTag({name: 'author', content: 'am.vijay@gmail.com'});
+          this.metaDataService.addTag({name: 'lastUpdatedDate', content: response.lastUpdatedDate});
+        }
+    });
+
+    this.markdownFilePath = environment.blogUrl + this.router.url + ".md"
     console.log("this.markdownFilePath :: " + this.markdownFilePath);
   }
 

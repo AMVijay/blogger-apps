@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BloggerHttpService } from '../shared/httpservice/httpservice.service';
+import { environment } from 'src/environments/environment';
 
 export interface Category {
   name: string;
@@ -21,7 +22,7 @@ export class CategoryComponent implements OnInit {
   }
 
   initializeData() {
-    let url = "https://amvijay.github.io/categories.json"
+    let url = environment.categoriesUrl;
     this.categories = [];
     this.httpService.getData(url).subscribe((response: Category[]) => {
         response.forEach(element => {
