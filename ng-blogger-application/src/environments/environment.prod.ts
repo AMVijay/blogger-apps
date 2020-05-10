@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
-  apiUrl: "https://amvijay.github.io/meta-data",
-  blogUrl: "https://amvijay.github.io/blog",
-  homeUrl: "https://amvijay.github.io/meta-data/home.json",
+  metadataApiUrl: "https://amvijay.github.io/meta-data",
+  blogApiUrl: "https://amvijay.github.io/blog",
+  pagesApiUrl: "https://amvijay.github.io/pages",
   categoriesUrl: "https://amvijay.github.io/meta-data/categories.json"
 };

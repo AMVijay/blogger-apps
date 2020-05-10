@@ -4,40 +4,40 @@ import { Router } from '@angular/router';
 import { BloggerHttpService } from '../shared/httpservice/httpservice.service';
 import { environment } from 'src/environments/environment';
 
-export interface HomePageCard {
+export interface PageCard {
   title: string;
   description: string;
   url: string;
 }
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-page',
+  templateUrl: './page.component.html',
+  styleUrls: ['./page.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class PageComponent implements OnInit {
 
   constructor(private httpService: BloggerHttpService,
     private router: Router) { }
 
-  cards: HomePageCard[];
+  cards: PageCard[];
 
   ngOnInit(): void {
     // Get Data
-    this.getData();
+    this.initializeData();
     console.log("URL :: " + this.router.url)
   }
 
-  private getData() {
+  private initializeData() {
     this.cards = [];
-    let url = environment.homeUrl;
+    let url = environment.pagesApiUrl + "/home.json";
     if (this.router.url != "/") {
       console.log("Router URL :: " + this.router.url);
-      url = environment.apiUrl + this.router.url + ".json";
+      url = environment.pagesApiUrl + this.router.url + ".json";
     }
 
-    console.log("Home Page URL " + url);
-    this.httpService.getData(url).subscribe((response: HomePageCard[]) => {
+    console.log("Page URL " + url);
+    this.httpService.getData(url).subscribe((response: PageCard[]) => {
       response.forEach(element => {
         this.cards.push(element);
       });

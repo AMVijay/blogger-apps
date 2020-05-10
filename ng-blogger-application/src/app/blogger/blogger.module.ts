@@ -8,14 +8,14 @@ import { MaterialModule } from './material/material.module';
 import { SharedModule } from './shared/shared.module';
 import { BlogComponent } from './blog/blog.component';
 import { HeaderComponent } from './header/header.component';
-import { HomeComponent } from './home/home.component';
+import { PageComponent } from './page/page.component';
 import { BloggerHttpService } from './shared/httpservice/httpservice.service';
 import { HttpClientModule } from '@angular/common/http';
 import { BloggerRouterModule } from './routing/routing.module';
 import { CategoryComponent } from './category/category.component';
 
 @NgModule({
-  declarations: [BlogComponent, HeaderComponent, HomeComponent, CategoryComponent],
+  declarations: [BlogComponent, HeaderComponent, PageComponent, CategoryComponent],
   imports: [
     CommonModule,
     NgbModule,
@@ -28,7 +28,6 @@ import { CategoryComponent } from './category/category.component';
     MarkdownModule.forRoot({ loader: HttpClientModule })
   ],
   exports: [
-    BlogComponent,
     HeaderComponent,
     BloggerRouterModule
   ],

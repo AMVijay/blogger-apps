@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { BloggerHttpService } from '../shared/httpservice/httpservice.service';
 import { environment } from 'src/environments/environment';
 import { Title, Meta } from '@angular/platform-browser';
 
+export const METATAG_TITLE = "title";
+export const METATAG_AUTHOR = "author";
+export const METATAG_LASTUPDATED_DATE = "lastUpdatedDate";
 
 export interface MetaData{
   title: string,
@@ -16,26 +19,31 @@ export interface MetaData{
   templateUrl: './blog.component.html',
   styleUrls: ['./blog.component.scss']
 })
-export class BlogComponent implements OnInit {
+export class BlogComponent implements OnInit, OnDestroy {
 
   constructor(private httpService: BloggerHttpService,
     private titleService: Title,
     private metaDataService: Meta,    
     private router: Router) { }
+  
 
   content: string;
   markdownFilePath: string;
 
   ngOnInit(): void {
-    this.getData();
+    this.initializeData();
   }
 
-  getData() {
+  ngOnDestroy(): void {
+    console.log("Blog Component Destroyed.");
+  }
+
+  initializeData() {
 
     this.titleService.setTitle("AM.VIJAY - Blogger Application");
 
     // Get MetaData
-    let metadataUrl = environment.apiUrl + this.router.url + ".json";  
+    let metadataUrl = environment.metadataApiUrl + this.router.url + ".json";  
     this.httpService.getData(metadataUrl).subscribe((response : MetaData) => {
         if(response != null){
           this.titleService.setTitle(response.title);
@@ -45,7 +53,7 @@ export class BlogComponent implements OnInit {
         }
     });
 
-    this.markdownFilePath = environment.blogUrl + this.router.url + ".md"
+    this.markdownFilePath = environment.blogApiUrl + this.router.url + ".md"
     console.log("this.markdownFilePath :: " + this.markdownFilePath);
   }
 

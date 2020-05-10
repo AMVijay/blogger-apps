@@ -4,9 +4,9 @@
 
 export const environment = {
   production: false,
-  apiUrl: "http://localhost:8080/meta-data",
-  blogUrl: "http://localhost:8080/blog",
-  homeUrl: "http://localhost:8080/meta-data/home.json",
+  metadataApiUrl: "http://localhost:8080/meta-data",
+  blogApiUrl: "http://localhost:8080/blog",
+  pagesApiUrl: "http://localhost:8080/pages",
   categoriesUrl: "http://localhost:8080/meta-data/categories.json"
 };
 
