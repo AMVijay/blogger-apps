@@ -8,7 +8,7 @@
 ## Angular cli commands used in this application
 * `ng new blogger-application` - to create this application.
 * `ng generate module blogger` - to create module for this entire site.
-    * `ng generate component blogger/home --module blogger` - Create home page component.
+    * `ng generate component blogger/page --module blogger` - Create Page component.
     * `ng generate component blogger/blog --module blogger` - Create Blog Page component.
 	* `ng generate component blogger/category --module blogger` - Create Categories section Component.
     * `ng generate module blogger/shared --module blogger` - Create shared module inside blogger module.
