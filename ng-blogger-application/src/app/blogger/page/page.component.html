@@ -1,18 +1,29 @@
-<!-- <div style="margin: 10px;">
-  <app-category></app-category>
-</div> -->
-<div id="content">
+<div id="categories" *ngIf="categories.length > 0">
+  <div id="categoryheader"><h4>Categories</h4></div>
+  <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="2px grid" fxLayoutAlign="flex-start">
+    <ng-container *ngFor="let category of categories">
+      <div fxFlex="0 1 calc(25% - 2px)" fxFlex.lt-md="0 1 calc(50% - 1%)" fxFlex.lt-sm="100%">
+        <mat-card>
+          <a [routerLink]="category.url" routerLinkActive="active">{{category.name}}</a>
+        </mat-card>
+      </div>
+    </ng-container>
+  </div>
+</div>
+
+<div id="blogs">
+  <div class="row"><h4>Blogs</h4></div>
   <div class="row">
-    <div class="col-lg-3 col-md-6 col-sm-12 col-12" *ngFor="let card of cards">
+    <div class="col-lg-3 col-md-6 col-sm-12 col-12" *ngFor="let blog of blogs">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title">{{card.title}}</h5>
-          <p class="card-text">{{card.description}}</p>
-          <div *ngIf="!card.url.startsWith('https')">
-            <a [routerLink]="card.url" routerLinkActive="active">Read More...</a>
+          <h5 class="card-title">{{blog.title}}</h5>
+          <p class="card-text">{{blog.description}}</p>
+          <div *ngIf="!blog.url.startsWith('https')">
+            <a [routerLink]="blog.url" routerLinkActive="active">Read More...</a>
           </div>
-          <div *ngIf="card.url.startsWith('https')">
-            <a [href]="card.url">Read More...</a>
+          <div *ngIf="blog.url.startsWith('https')">
+            <a [href]="blog.url">Read More...</a>
           </div>
         </div>
       </div>
