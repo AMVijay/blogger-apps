@@ -8,6 +8,7 @@ export interface Blog {
   title: string;
   description: string;
   url: string;
+  lastUpdatedDate: string;
 }
 
 export interface Category {
@@ -54,6 +55,7 @@ export class PageComponent implements OnInit {
           blog.title = blogContent["title"];
           blog.description = blogContent["description"];
           blog.url = blogContent["url"];
+          blog.lastUpdatedDate = blogContent["lastUpdatedDate"];
           this.blogs.push(blog);
         });
       }
