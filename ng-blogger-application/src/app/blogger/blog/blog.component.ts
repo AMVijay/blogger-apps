@@ -40,17 +40,25 @@ export class BlogComponent implements OnInit, OnDestroy {
   initializeData() {
     // Get MetaData
     let metadataUrl = environment.metadataApiUrl + this.router.url + ".json";
+    this.markdownFilePath = null;
     this.httpService.getData(metadataUrl).subscribe(response => {
       if (response != null) {
         this.titleService.setTitle(response['title']);
         METATAGS.forEach(metatag => {
           this.metaDataService.addTag({ name: metatag, content: response[metatag] });
         });
+        
+        if(response['content'] != null){
+          this.markdownFilePath = response['content'];     
+        }
+        else{
+          this.markdownFilePath = environment.blogApiUrl + this.router.url + ".md"
+        }
       }
-    });
-
-    this.markdownFilePath = environment.blogApiUrl + this.router.url + ".md"
-    console.log("this.markdownFilePath :: " + this.markdownFilePath);
+    },
+     (error) => {
+      this.markdownFilePath = environment.blogApiUrl + this.router.url + ".md"
+     });
   }
 
 }

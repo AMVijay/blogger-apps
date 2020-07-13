@@ -15,11 +15,8 @@ export class BloggerHttpService {
    * @param url as String.
    */
   public getData(url: string) {
-    return this.http.get(url).pipe(
-      catchError(this.handleError)
-    );
+    return this.http.get(url).pipe(catchError(this.handleError));
   }
-
 
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
