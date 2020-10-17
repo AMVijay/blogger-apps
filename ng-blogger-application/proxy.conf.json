@@ -1,0 +1,11 @@
+{
+    "/meta-data/*": {
+        "target": "http://localhost:8080/"
+    },
+    "/blog/*": {
+        "target": "http://localhost:8080/"
+    },
+    "/pages/": {
+        "target": "http://localhost:8080/"
+    }
+}

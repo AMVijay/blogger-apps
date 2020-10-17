@@ -16,6 +16,8 @@ export interface Category {
   url: string;
 }
 
+const PAGE_NAME_REG_EX = "/page(.*)"
+
 @Component({
   selector: 'app-page',
   templateUrl: './page.component.html',
@@ -32,7 +34,7 @@ export class PageComponent implements OnInit {
   ngOnInit(): void {
     // Get Data
     this.initializeData();
-    console.log("URL :: " + this.router.url)
+    // console.log("URL :: " + this.router.url)
   }
 
   private initializeData() {
@@ -41,10 +43,12 @@ export class PageComponent implements OnInit {
 
     let url = environment.pagesApiUrl + "/home.json";
     if (this.router.url != "/") {
-      console.log("Router URL :: " + this.router.url);
-      url = environment.pagesApiUrl + this.router.url + ".json";
+      // console.log("Router URL :: " + this.router.url);
+      // console.log("Page Name " , (this.router.url.match(PAGE_NAME_REG_EX))[1]);
+      let pageName = (this.router.url.match(PAGE_NAME_REG_EX))[1];
+      url = environment.pagesApiUrl + pageName + ".json";
     }
-    console.log("Page URL " + url);
+    // console.log("Page URL " + url);
 
     this.httpService.getData(url).subscribe(response => {
 

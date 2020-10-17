@@ -6,8 +6,14 @@ import { PageComponent } from '../page/page.component';
 
 const routes: Routes = [
   { path: "", component: PageComponent },
-  { path: "hadoop", component: PageComponent },
-  { path: "datastructure", component: PageComponent },
+  { path: "page", 
+    children: [
+      {
+        path : "**",
+        component: PageComponent
+      }
+    ]
+  },
   {
     path: "blog",
     children: [

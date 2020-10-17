@@ -4,10 +4,10 @@
 
 export const environment = {
   production: false,
-  metadataApiUrl: "http://localhost:8080/meta-data",
-  blogApiUrl: "http://localhost:8080/blog",
-  pagesApiUrl: "http://localhost:8080/pages",
-  categoriesUrl: "http://localhost:8080/meta-data/categories.json"
+  metadataApiUrl: "/meta-data",
+  blogApiUrl: "/blogs",
+  pagesApiUrl: "/pages",
+  categoriesUrl: "/meta-data/categories.json"
 };
 
 /*
