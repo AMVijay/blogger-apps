@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
@@ -12,12 +12,13 @@ import { HeaderComponent } from './header/header.component';
 import { PageComponent } from './page/page.component';
 import { BloggerHttpService } from './shared/httpservice/httpservice.service';
 import { BloggerRouterModule } from './routing/routing.module';
+import { BloggerComponent } from './blogger.component';
 
 @NgModule({
-  declarations: [BlogComponent, HeaderComponent, PageComponent],
+  declarations: [BlogComponent, HeaderComponent, PageComponent, BloggerComponent],
   imports: [
     CommonModule,
-    NgbModule,
+    BrowserAnimationsModule,
     RouterModule,
     HttpClientModule,
     FlexLayoutModule,
@@ -27,8 +28,7 @@ import { BloggerRouterModule } from './routing/routing.module';
     MarkdownModule.forRoot({ loader: HttpClientModule })
   ],
   exports: [
-    HeaderComponent,
-    BloggerRouterModule
+    BloggerComponent
   ],
   providers: [BloggerHttpService]
 })

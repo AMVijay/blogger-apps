@@ -10,7 +10,7 @@ declare let gtag;
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'blogger-application';
+  title = 'ng-blogger-application';
 
   constructor(router: Router) {
     const navigationEvent = router.events.pipe(

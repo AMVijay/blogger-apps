@@ -1,5 +1,5 @@
 {
-  "name": "blogger-application",
+  "name": "ng-blogger-application",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -23,8 +23,6 @@
     "@angular/platform-browser": "~9.0.0",
     "@angular/platform-browser-dynamic": "~9.0.0",
     "@angular/router": "~9.0.0",
-    "@ng-bootstrap/ng-bootstrap": "^6.0.0",
-    "bootstrap": "^4.4.1",
     "ngx-markdown": "^9.0.0",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
