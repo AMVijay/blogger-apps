@@ -33,7 +33,6 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forRoot(routes, { useHash: true })
-    // RouterModule.forRoot(routes)
   ]
 })
 export class BloggerRouterModule { }

@@ -5,33 +5,14 @@
   <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="10px grid" fxLayoutAlign="flex-start">
     <ng-container *ngFor="let category of categories">
       <div fxFlex="0 1 calc(25% - 2px)" fxFlex.lt-md="0 1 calc(50% - 1%)" fxFlex.lt-sm="100%">
-        <mat-card>
+        <app-card [card-title]="category.name" [url]="category.url"></app-card>
+        <!-- <mat-card>
           <a [routerLink]="category.url" routerLinkActive="active">{{category.name}}</a>
-        </mat-card>
+        </mat-card> -->
       </div>
     </ng-container>
   </div>
 </div>
-
-<!-- <div id="blogs">
-  <div class="row"><h4>Blogs</h4></div>
-  <div class="row">
-    <div class="col-lg-3 col-md-6 col-sm-12 col-12" *ngFor="let blog of blogs">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">{{blog.title}}</h5>
-          <p class="card-text">{{blog.description}}</p>
-          <div *ngIf="!blog.url.startsWith('https')">
-            <a [routerLink]="blog.url" routerLinkActive="active">Read More...</a>
-          </div>
-          <div *ngIf="blog.url.startsWith('https')">
-            <a [href]="blog.url">Read More...</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
 
 <!-- Below implementation is to show cards in 4x4 layout using Flex-layout -->
 <div id="blogs">
@@ -41,24 +22,22 @@
   <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="10px grid" fxLayoutAlign="flex-start">
     <ng-container *ngFor="let card of blogs">
       <div fxFlex="0 1 calc(25% - 5px)" fxFlex.lt-md="0 1 calc(50% - 1%)" fxFlex.lt-sm="100%">
-        <mat-card>
-          <!-- <mat-card-header> -->
-            <mat-card-title> 
-              <div *ngIf="!card.url.startsWith('https')">
-                <a [routerLink]="card.url" routerLinkActive="active">
-                   {{card.title}}
-                </a>
-              </div>
-              <div *ngIf="card.url.startsWith('https')">
-                <a [href]="card.url">{{card.title}}</a>
-              </div>
-            </mat-card-title>
-          <!-- </mat-card-header> -->
+        <app-card [card-title]="card.title" [url]="card.url" [last-updated-date]="card.lastUpdatedDate"></app-card>
+        <!-- <mat-card>
+          <mat-card-title> 
+            <div *ngIf="!card.url.startsWith('https')">
+              <a [routerLink]="card.url" routerLinkActive="active">
+                  {{card.title}}
+              </a>
+            </div>
+            <div *ngIf="card.url.startsWith('https')">
+              <a [href]="card.url">{{card.title}}</a>
+            </div>
+          </mat-card-title>
           <mat-card-content>
-            <!-- <p>{{card.description}}</p> -->
             {{card.lastUpdatedDate}}
           </mat-card-content>
-        </mat-card>
+        </mat-card> -->
       </div>
     </ng-container>
   </div>

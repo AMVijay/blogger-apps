@@ -1,0 +1,14 @@
+<div class="card-layout">
+    <div class="card-content">
+        <div *ngIf="!url.startsWith('https')">
+            <a [routerLink]="url" routerLinkActive="active">
+                {{cardTitle}}
+            </a>
+        </div>
+        <div *ngIf="url.startsWith('https')">
+            <a [href]="url">{{cardTitle}}</a>
+        </div>
+        <!-- <div><span>{{cardTitle}}</span></div> -->
+        <div *ngIf="lastUpdatedDate != null"><span style="font-style:italic;font-size: small;">{{lastUpdatedDate}}</span></div>
+    </div>
+</div>
