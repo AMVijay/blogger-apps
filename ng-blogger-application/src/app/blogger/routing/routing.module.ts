@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { BlogComponent } from '../blog/blog.component';
 import { PageComponent } from '../page/page.component';
+import { HomeComponent } from '../home/home.component';
 
 const routes: Routes = [
-  { path: "", component: PageComponent },
+  { path: "", component: HomeComponent },
   { path: "page", 
     children: [
       {

@@ -13,9 +13,10 @@ import { PageComponent } from './page/page.component';
 import { BloggerHttpService } from './shared/httpservice/httpservice.service';
 import { BloggerRouterModule } from './routing/routing.module';
 import { BloggerComponent } from './blogger.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
-  declarations: [BlogComponent, HeaderComponent, PageComponent, BloggerComponent],
+  declarations: [BlogComponent, HeaderComponent, PageComponent, BloggerComponent, HomeComponent],
   imports: [
     CommonModule,
     BrowserAnimationsModule,

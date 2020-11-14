@@ -1,0 +1,34 @@
+<div>
+    <h4>About me</h4>
+    <div class="card">
+        Software Architect. Designed and Developed Enterprise Application using technologies: 
+        <ul>
+            <li>Java 8, Java 11, Python, HTML, XML, Typescript, Javascript</li>
+            <li>Spring Framework, Sprint Boot,Spring MVC, Spring Core, Spring Batch, Spring Data</li>
+            <li>Angular 9, JQuery, ag-grid, Angular Material, bootstrap, flex</li>
+            <li>AWS</li>
+            <li>Apache Hadoop, Apache Spark, Apache Sqoop</li>
+            <li>EhCache, Redis, Oracle Coherence</li>
+            <li>JBoss EAP, Weblogic, Websphere</li>
+            <li>Oracle Webcenter Portal, Oracle ADF</li>
+            <li>Oracle Database, MySQL, Mongo DB</li>
+        </ul>
+        <a href="/resume">Full Resume</a>
+        <div id="social">
+            <a href="https://github.com/amvijay">Git Hub</a>
+            <a href="https://hackerrank.com/am.vijay">Hacker Rank</a>
+            <a href="https://www.linkedin.com/in/vijayaraaghavan-manoharan-a4388927/">LinkedIn</a>
+        </div>        
+    </div>
+</div>
+<div>
+    <h4>Recent Blogs</h4>
+    <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="10px grid" fxLayoutAlign="flex-start">
+        <ng-container *ngFor="let card of blogs">
+            <div fxFlex="0 1 calc(25% - 5px)" fxFlex.lt-md="0 1 calc(50% - 1%)" fxFlex.lt-sm="100%">
+                <app-card [card-title]="card.title" [url]="card.url" [last-updated-date]="card.lastUpdatedDate">
+                </app-card>
+            </div>
+        </ng-container>
+    </div>
+</div>
