@@ -5,7 +5,8 @@
             <a [routerLink]="'/page/' + tag" routerLinkActive="active" style="margin-right: 1%;">#{{tag}}</a>
         </ng-container>
     </div>
-    <div>
+    <div *ngIf="markdownFilePath != null" style="width: 98%;">
         <markdown [src]="markdownFilePath"></markdown>
     </div>
+    <div [innerHTML]="htmlContent" *ngIf="htmlContent != null"></div>
 </div>

@@ -24,7 +24,7 @@ export class BlogComponent implements OnInit, OnDestroy {
   markdownFilePath: string;
   pageHeader : string;
   tags: string[];  
-
+  htmlContent: string;
 
   ngOnInit(): void {
     this.initializeData();
@@ -49,6 +49,7 @@ export class BlogComponent implements OnInit, OnDestroy {
     // Get MetaData
     let metadataUrl = environment.metadataApiUrl + blogName + ".json";
     this.markdownFilePath = null;
+    this.htmlContent = null;
     this.httpService.getData(metadataUrl).subscribe(response => {
       if (response != null) {
         // Update Meta Data
@@ -57,11 +58,17 @@ export class BlogComponent implements OnInit, OnDestroy {
         this.titleService.setTitle(response['title']);
         this.tags = response['tags'];
 
-        if (response['content'] != null) {
-          this.markdownFilePath = response['content'];
+        if(response['htmlContentPath'] != null){
+          // fetch htmlContent
+          this.fetchHtmlContent(response['htmlContentPath']);
         }
-        else {
-          this.markdownFilePath = environment.blogApiUrl + blogName + ".md"
+        else{
+          if (response['content'] != null) {
+            this.markdownFilePath = response['content'];
+          }
+          else {
+            this.markdownFilePath = environment.blogApiUrl + blogName + ".md"
+          }
         }
       }
     },
@@ -77,6 +84,13 @@ export class BlogComponent implements OnInit, OnDestroy {
     METATAGS.forEach(metatag => {
       this.metaDataService.addTag({ name: metatag, content: response[metatag] });
     });
+  }
+
+  fetchHtmlContent(htmlContentUrl : string){
+
+    this.httpService.getData(environment.blogApiUrl + htmlContentUrl).subscribe((response : string) => {
+      this.htmlContent = response;
+    })
   }
 
 }
