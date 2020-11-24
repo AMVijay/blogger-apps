@@ -1,11 +1,11 @@
-<div>
+<div id="blog">
     <div style="text-align: center;"><h1>{{pageHeader}}</h1></div>
     <div style="text-align: center;">
         <ng-container *ngFor="let tag of tags">
             <a [routerLink]="'/page/' + tag" routerLinkActive="active" style="margin-right: 1%;">#{{tag}}</a>
         </ng-container>
     </div>
-    <div *ngIf="markdownFilePath != null" style="width: 98%;">
+    <div *ngIf="markdownFilePath != null" style="margin: 1%;">
         <markdown [src]="markdownFilePath"></markdown>
     </div>
     <div [innerHTML]="htmlContent" *ngIf="htmlContent != null"></div>
